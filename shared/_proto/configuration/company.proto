@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package company;
+
+message Company {
+  int32 comp_id = 1;
+  string comp_name = 2;
+  string comp_cnpj = 3;
+  int32 comp_vlan = 4;
+  string created_at = 5;
+  string updated_at = 6;
+}
+
+message CompanyGetAllRes {
+  repeated Company companies = 1;
+}
+
+message CompanyCreateReq {
+  string name = 1;
+  string cnpj = 2;
+  int32 vlan = 3;
+}
+
+message CompanyUpdateReq {
+  int32 id = 1;
+  string name = 2;
+  string cnpj = 3;
+  int32 vlan = 4;
+}

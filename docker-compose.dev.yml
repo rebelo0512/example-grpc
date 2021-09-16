@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  # module-configuration:
+  #   image: "module-configuration:dev"
+  #   container_name: "module-configuration"
+  #   command: 'bash -c "pm2 start npm -- run start:dev && tail -f /dev/null"'
+  #   restart: "on-failure"
+  #   build:
+  #     context: "./microservices/module-configuration"
+  #   volumes:
+  #     - ./microservices/module-configuration:/var/www/module-configuration
+  #   environment:
+  #     - NODE_ENV="development"
+  #     - URL=${URL_MODULE_CONFIGURATION_URL}
+  #     - PORT=${URL_MODULE_CONFIGURATION_PORT}
+  #   networks:
+  #     three_net:
+  #       ipv4_address: 10.11.12.2
+
+  mysql-dev:
+    image: mysql
+    container_name: mysql-dev
+    environment:
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_DATABASE}
+    networks:
+      three_net:
+        ipv4_address: 10.11.12.2
+
+networks:
+  three_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.11.12.0/24
+          gateway: 10.11.12.1

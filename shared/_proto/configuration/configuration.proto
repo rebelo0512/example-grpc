@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "company.proto";
+import "shared.proto";
+
+package configuration;
+
+service CompanyService {
+  rpc getAll(shared.Void) returns (company.CompanyGetAllRes) {}
+  rpc findById (shared.Id) returns (company.Company);
+  rpc create (company.CompanyCreateReq) returns (company.Company);
+  rpc update (company.CompanyUpdateReq) returns (company.Company);
+}
