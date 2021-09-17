@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CompanyController } from './controllers/company/company.controller';
-import { CompanyModel } from './externals-pkg/typeorm/models/CompanyModel.entity';
-import { CompanyMysqlRepository } from './externals-pkg/typeorm/repository/CompanyMysqlRepository';
+import { CompanyModel } from './external-pkgs/typeorm/models/CompanyModel.entity';
+import { CompanyMysqlRepository } from './external-pkgs/typeorm/repository/CompanyMysqlRepository';
 import { CompanyCreateService } from './services/company/CompanyCreate.service';
 import { CompanyFindByIdService } from './services/company/CompanyFindById.service';
 import { CompanyGetAllService } from './services/company/CompanyGetAll.service';

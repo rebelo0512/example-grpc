@@ -1,4 +1,4 @@
-import { CompanyModel } from 'src/modules/company/externals-pkg/typeorm/models/CompanyModel.entity';
+import { CompanyModel } from 'src/modules/company/external-pkgs/typeorm/models/CompanyModel.entity';
 import {
   IRepositoryDefaultFields,
   IRepositoryIdField,

@@ -1,5 +1,5 @@
 import { IRepositoryDefaultFields } from 'src/shared/external-pkg/typeorm/interfaces/IRepositoryDefaultFields';
-import { CompanyModel } from '../../externals-pkg/typeorm/models/CompanyModel.entity';
+import { CompanyModel } from '../../external-pkgs/typeorm/models/CompanyModel.entity';
 import {
   ICompanyRepositoryCreate,
   ICompanyRepositoryFindById,

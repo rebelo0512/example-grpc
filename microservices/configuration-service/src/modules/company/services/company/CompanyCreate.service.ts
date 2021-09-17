@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CompanyModel } from '../../externals-pkg/typeorm/models/CompanyModel.entity';
+import { CompanyModel } from '../../external-pkgs/typeorm/models/CompanyModel.entity';
 import { ICompanyCreateDTO } from '../../interfaces/dtos/ICompany.dto';
 import { ICompanyRepository } from '../../interfaces/repositories/ICompanyRepository';
 

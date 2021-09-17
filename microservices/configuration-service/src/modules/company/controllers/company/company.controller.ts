@@ -1,11 +1,12 @@
 import { Controller, Logger, OnModuleInit, UseGuards } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
+import { joiDefaultIdField } from 'src/shared/external-pkg/joi/joiDefaultFields';
 import { JoiValidationGuard } from 'src/shared/external-pkg/joi/JoiValidation.guard';
 import {
   companyCreateSchema,
   companyUpdateSchema,
-} from '../../externals-pkg/joi/schemas/companySchema';
-import { CompanyModel } from '../../externals-pkg/typeorm/models/CompanyModel.entity';
+} from '../../external-pkgs/joi/schemas/companySchema';
+import { CompanyModel } from '../../external-pkgs/typeorm/models/CompanyModel.entity';
 import { CompanyValidationExistGuard } from '../../guards/CompanyValidationExist.guard';
 import {
   ICompanyCreateDTO,
@@ -38,7 +39,10 @@ export class CompanyController implements OnModuleInit {
   }
 
   @GrpcMethod('CompanyService', 'findById')
-  @UseGuards(CompanyValidationExistGuard)
+  @UseGuards(
+    new JoiValidationGuard(joiDefaultIdField),
+    CompanyValidationExistGuard,
+  )
   findById({ id }: { id: number }): Promise<CompanyModel> {
     return this.companyFindByIdService.handle(Number(id));
   }

@@ -1,4 +1,4 @@
-import { CompanyModel } from '../../externals-pkg/typeorm/models/CompanyModel.entity';
+import { CompanyModel } from '../../external-pkgs/typeorm/models/CompanyModel.entity';
 
 export interface ICompanyGetAllReturnDTO {
   companies: CompanyModel[];
